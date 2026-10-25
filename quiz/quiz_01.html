@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title> 이진수 변환 - 재귀함수 </title>
+        <body>
+            <script>
+                function solution(n) {
+                    let answer;
+                    
+
+                    function recursion(n){
+
+                        if(n === 0) return; // 참이면 return에 저장을 해서 바로 값을 띄우고 거짓이면 밑으로 내려가 반복
+
+                        else {
+                            /*console.log(n % 2);  스택 쌓이는 방식이 다르기에 1 0 1 1*/
+                            recursion(parseInt(n/2));
+                            console.log(n % 2); // 스택이 쌓이기 때문에 1 1 0 1 으로 뜸   
+                        }
+
+                    } //recursion
+                        
+
+                    recursion(n);
+                    return answer;
+                }
+            </script>
+        </body>
+    </head>
+</html>
+
+
+
+
+
+<html>
+    <head>
+        <title> 이진수 변환 - 재귀함수 </title>
+    </head>
+    <body>
+        <script>
+            function solution(n) {
+                // 1. 숫자가 아닌 '글자'로 이어 붙이기 위해 빈 문자열("")로 초기화합니다.
+                let answer = ""; 
+
+                function recursion(n) {
+                    // [종료 조건] n이 0이 되면 더 이상 나눌 수 없으므로 함수를 종료합니다.
+                    if (n === 0) return; 
+
+                    else {
+                        // 2. [재귀 호출] 먼저 숫자를 2로 계속 나누며 스택을 끝까지 쌓습니다.
+                        // (이 줄이 실행되는 동안 아래의 answer += 코드는 대기 상태가 됩니다.)
+                        recursion(parseInt(n / 2));
+
+                        // 3. [백트래킹] 가장 깊은 곳(n=1)부터 거꾸로 올라오며 나머지(0 또는 1)를 붙입니다.
+                        // String()을 사용하여 숫자 연산이 아닌 '문자 이어 붙이기'를 수행합니다.
+                        answer += String(n % 2); 
+                    }
+                }
+
+                recursion(n);
+                return answer;
+            }
+
+            console.log(solution(13)); // 출력: 1101
+        </script>
+    </body>
+</html>

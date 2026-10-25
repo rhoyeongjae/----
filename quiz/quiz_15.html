@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>강아지 태우기 - 이진 트리</title>
+    <body>
+      <script>
+        function solution(arr) {
+          let answer = Number.MIN_SAFE_INTEGER;
+          let c = 259;
+          let n = arr.length;
+
+          function DFS(L, sum) {
+            if (sum > c) return;
+            if (L === n) {
+              //  console.log(sum);
+              answer = Math.max(answer, sum);
+            } else {
+              DFS(L + 1, sum + arr[L]);
+              DFS(L + 1, sum);
+            }
+          }
+          DFS(0, 0);
+          return answer;
+        }
+        let arr = [81, 58, 42, 33, 61];
+        console.log(solution(arr));
+      </script>
+    </body>
+  </head>
+</html>

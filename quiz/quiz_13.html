@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>이진트리의 순회 - 트리의 운행 방법(전위, 중위, 후위)</title>
+  </head>
+  <body>
+    <script>
+      function solution(v) {
+        let answer = "";
+
+        function Traversal(v) {
+          if (v > 7) return;
+
+          // preOrder : 루트 -> 왼쪽 -> 오른쪽
+          //   answer += v + " ";
+          //   Traversal(v * 2);
+          //   Traversal(v * 2 + 1);
+
+          // inOrder  : 왼쪽 -> 루트 -> 오른쪽
+          //   Traversal(v * 2);
+          //   answer += v + " ";
+          //   Traversal(v * 2 + 1);
+
+          // postOrder : 왼쪽 -> 오른쪽 -> 루트
+          Traversal(v * 2);
+          Traversal(v * 2 + 1);
+          answer += v + " ";
+        }
+
+        Traversal(v);
+        return answer;
+      }
+
+      console.log(solution(1));
+    </script>
+  </body>
+</html>

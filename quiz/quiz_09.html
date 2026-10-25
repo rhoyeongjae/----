@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>큐 - 필수과목 과목신청</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        let answer = "YES";
+        let queue = need.split("");
+
+        for (let x of plan) {
+          if (queue.includes(x)) {
+            if (x !== queue.shift()) return "NO";
+          }
+        }
+
+        if (queue.length > 0) return "NO";
+        return answer;
+      }
+
+      let a = "CBA";
+      let b = "CBDAGE";
+      //   let b = "CBDGE";
+      //   let b = "CADBGE";
+
+      console.log(solution(a, b)); // 출력: NO
+    </script>
+  </body>
+</html>
